@@ -29,6 +29,8 @@ foreach($allClasses as $class){
 echo("</ul>");
 ?>
 
+<h1>Dodaj kurs:</h1><br/>
+
 <form action='#' method='post'>
     <label>
         Teacher responsible for class:

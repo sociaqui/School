@@ -9,5 +9,6 @@
 require_once ("./src/DBConnect.php");
 require_once ("./src/Student.php");
 require_once ("./src/SchoolClass.php");
+require_once ("./src/Teacher.php");
 
 $conn=DBConnect::createConnection();

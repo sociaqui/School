@@ -23,9 +23,7 @@ if(isset($student)){
         echo("<ul>");
         foreach($studentClasses as $class){
 
-            //TODO: show class (similar to student):
-            //echo("<li>{$student->getName()}: <a href='show_student.php?studentId={$student->getId()}'>Zobacz profil</a></li>");
-            echo ("<li>{$class->getName()}</li>");
+            echo ("<li>{$class->getName()}: <a href='show_class.php?classId={$class->getId()}'>Zobacz profil</a></li>");
 
         }
         echo("</ul>");

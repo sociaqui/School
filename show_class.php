@@ -18,7 +18,7 @@ if(isset($_GET['classId'])){
 if(isset($class)){
     echo("<h1>{$class->getName()}</h1><br/>");
     echo("<p>{$class->getDescription()}</p><br/>");
-    echo("<p>Główny wykładowca: !! TODO !!</p><br/>");
+    echo("<p>Główny wykładowca: {$class->getMyTeacher($conn)->getName()} {$class->getMyTeacher($conn)->getSurname()}</p><br/>");
 
     echo("<h1>Kursanci:</h1>");
     $classStudents = $class->getAllStudents($conn);

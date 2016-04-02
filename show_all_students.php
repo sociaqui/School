@@ -35,6 +35,8 @@ if (count($allStudents) === 0){
 
 ?>
 
+<h1>Dodaj kursanta:</h1><br/>
+
 <form action='#' method='post'>
     <label>
         Imię:

@@ -47,3 +47,8 @@ $newClass->loadFromDb($conn,2);
 //$newClass->removeStudent($conn, $allMyStudents[0]->getId());
 $allMyStudents = $newClass->getAllStudents($conn);
 var_dump($allMyStudents);*/
+
+$testClass = new SchoolClass();
+$testClass->loadFromDb($conn, 1);
+$testTeacher=$testClass->getMyTeacher($conn);
+var_dump($testTeacher);

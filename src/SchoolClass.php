@@ -60,6 +60,29 @@ class SchoolClass
 
         return $allClasses;
     }
+
+    static public function GetAllClassesOfTeacher(mysqli $conn, $teacherId){
+        $allClasses = [];
+
+        $sql = "SELECT * FROM Classes
+                WHERE teacher_id = {$teacherId}";
+
+        $result = $conn->query($sql);
+        if ($result != FALSE){
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $class = new SchoolClass();
+                    $class->id= $row["id"];
+                    $class->setName($row["name"]);
+                    $class->setDescription($row["description"]);
+                    $class->setTeacherId($row["teacher_id"]);
+                    $allClasses[]=$class;
+                }
+            }
+        }
+
+        return $allClasses;
+    }
     // Koniec funkcji repozytorium
 
     private $id;
@@ -196,5 +219,11 @@ class SchoolClass
     {
         $myStudents = Student::GetAllStudentsFromClass($conn, $this->getId());
         return $myStudents;
+    }
+
+    public function getMyTeacher(mysqli $conn)
+    {
+        $myTeacher = Teacher::GetClassTeacher($conn, $this->getTeacherId());
+        return $myTeacher;
     }
 }
