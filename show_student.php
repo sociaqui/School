@@ -23,7 +23,9 @@ if(isset($student)){
         echo("<ul>");
         foreach($studentClasses as $class){
 
-            echo ("<li>{$class->getName()}: <a href='show_class.php?classId={$class->getId()}'>Zobacz profil</a></li>");
+            echo ("<li>{$class->getName()}: <a href='show_class.php?classId={$class->getId()}'>Zobacz profil</a><br/>
+                   Oceny: {$class->listAllMarksOfStudent($conn, $student->getId())}
+                   </li>");
 
         }
         echo("</ul>");

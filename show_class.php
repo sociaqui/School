@@ -28,8 +28,11 @@ if(isset($class)){
         echo("<ul>");
         foreach ($classStudents as $student){
             echo ("<li>
-                   {$student->getName()}
+                   {$student->getName()} {$student->getSurname()}
                    <a href='remove_from_class.php?classId={$class->getId()}&studentId={$student->getId()}'>Usuń z kursu</a>
+                   <a href='add_mark.php?classId={$class->getId()}&studentId={$student->getId()}'>Dodaj ocenę</a>
+                   <br/>
+                   Oceny: {$class->listAllMarksOfStudent($conn, $student->getId())}
                    </li>");
         }
         echo("</ul>");
@@ -43,7 +46,7 @@ if(isset($class)){
         echo("<ul>");
         foreach ($otherStudents as $student){
             echo ("<li>
-                   {$student->getName()}
+                   {$student->getName()} {$student->getSurname()}
                    <a href='add_to_class.php?classId={$class->getId()}&studentId={$student->getId()}'>Dodaj do kursu</a>
                    </li>");
         }

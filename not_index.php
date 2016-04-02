@@ -48,7 +48,11 @@ $newClass->loadFromDb($conn,2);
 $allMyStudents = $newClass->getAllStudents($conn);
 var_dump($allMyStudents);*/
 
-$testClass = new SchoolClass();
+/*$testClass = new SchoolClass();
 $testClass->loadFromDb($conn, 1);
-$testTeacher=$testClass->getMyTeacher($conn);
-var_dump($testTeacher);
+$testClass->addMark($conn, 1, 'ładne oczy', '5');*/
+
+/*$testClass = new SchoolClass();
+$testClass->loadFromDb($conn, 1);
+$testMarks=$testClass->listAllMarksOfStudent($conn, 1);
+var_dump($testMarks);*/

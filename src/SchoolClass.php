@@ -226,4 +226,35 @@ class SchoolClass
         $myTeacher = Teacher::GetClassTeacher($conn, $this->getTeacherId());
         return $myTeacher;
     }
+
+    public function addMark(mysqli $conn, $studentId, $description, $mark){
+        if($this->getId() != -1 && $studentId != -1){
+            $sql = "INSERT INTO Marks (student_id, class_id, description, mark)
+                    VALUES ({$studentId},{$this->getId()},'{$description}',{$mark})";
+            $result = $conn->query($sql);
+            return $result;
+        }
+        return FALSE;
+    }
+
+    public function listAllMarksOfStudent(mysqli $conn, $studentId){
+        $allMarks = "Brak";
+
+        $sql = "SELECT mark
+                FROM Marks
+                WHERE student_id = {$studentId} AND class_id = {$this->getId()}";
+
+        $result = $conn->query($sql);
+        if ($result != FALSE){
+            if($result->num_rows > 0){
+                $allMarks = "";
+                while($row = $result->fetch_assoc()){
+                    $allMarks = $allMarks.$row["mark"].", ";
+                }
+                $allMarks = substr($allMarks, 0, -2);
+            }
+        }
+
+        return $allMarks;
+    }
 }
